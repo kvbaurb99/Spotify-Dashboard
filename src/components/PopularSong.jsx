@@ -43,7 +43,7 @@ export default function PopularSong({ title, image, listeners, time, position })
             {listeners.toLocaleString()}
           </p>
         </div>
-        <div className="flex gap-8 items-center relative right-3 lg:right-0">
+        <div className="flex gap-8 items-center lg:w-auto w-full justify-end relative right-3 lg:right-0">
           <p className="text-sm text-[#b3b3b3] lg:block hidden">{time}</p>
           {isHover || showMenu ? <AiOutlineHeart className="w-6 absolute left-[4rem] text-xl hidden lg:block" /> : null}
           {isHover || showMenu ? <BsThreeDots onClick={() => setShowMenu(!showMenu)} className="w-6 absolute lg:left-[6rem] text-xl" /> : null}
