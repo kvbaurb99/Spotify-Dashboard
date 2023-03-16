@@ -7,6 +7,10 @@ Spotify Dashboard Design Project with hover and interactive buttons.
 - Interactive buttons and hovers
 - Responsive design
 
+## Live demo
+
+https://spotify-dashboard-kvbaurb99.netlify.app/
+
 ## Technologies
 
 - ReactJS
