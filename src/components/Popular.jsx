@@ -5,11 +5,19 @@ import PopularSong from './PopularSong'
 export default function Popular() {
   const [numToShow, setNumToShow] = useState(5)
   const [showMore, setShowMore] = useState(true)
+  const [openMenuIndex, setOpenMenuIndex] = useState(null);
 
   const handleShowMore = () => {
     setNumToShow(numToShow + 5)
     setShowMore(false)
   }
+
+  const handleMenuOpen = (index) => {
+    // close any previously opened menu
+    setOpenMenuIndex(null);
+    // open the menu for the current song
+    setOpenMenuIndex(index);
+  };
 
   const handleShowLess = () => {
     setNumToShow(5)
@@ -21,14 +29,19 @@ export default function Popular() {
       <div className='lg:ml-[3%]'>
         <p className='text-white text-xl ml-5 lg:ml-0'>Popular now</p>
         <div className='mt-5'>
-          {data.slice(0, numToShow).map(song => (
+          {data.slice(0, numToShow).map((song, index) => (
             <PopularSong
               key={song.title}
+              index={index}
               position={song.position}
               title={song.title}
               listeners={song.listeners}
               time={song.time}
               image={song.image}
+              openMenuIndex={openMenuIndex}
+              setOpenMenuIndex={setOpenMenuIndex}
+              isOpen={openMenuIndex === index}
+              onOpen={handleMenuOpen}
             />
           ))}
         </div>
